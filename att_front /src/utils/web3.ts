@@ -1,11 +1,17 @@
 import Web3 from 'web3';
-import combined from '../abis/combinedAbis.json';
+import combined from './combinedAbis.json';
 import axios from 'axios';
 
 const web3 = new Web3('http://127.0.0.1:7545');
 
-export const contract = new web3.eth.Contract(
-    Attendance.abi, Attendance.address
+export const attendanceContract = new web3.eth.Contract(
+    combined.Attendance.abi,
+    combined.Attendance.address
+);
+
+export const questionlistContract = new web3.eth.Contract(
+    combined.Questionlist.abi,
+    combined.Questionlist.address
 );
 
 export const privateKeyToAccount = (privateKey: string) => {
