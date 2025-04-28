@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
-import { privateKeyToAccount } from '../utils/web3';
-import Web3 from 'web3';
-import { Web3Account } from 'web3';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect, useCallback } from 'react';
+import { privateKeyToAccount } from '../utils/ethers';
+import { AttendanceStatus } from '../utils/constant';
+import { dailyLimit, attendance } from '../utils/ethers';
+
+import Modal from '../components/Modal';
+import Loading from '../components/Loading';
 
 const web3 = new Web3('http://127.0.0.1:7545');
 
